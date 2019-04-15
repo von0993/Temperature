@@ -1,0 +1,46 @@
+# Create Class
+class tempearutefile:
+    def __init__(self, filename):
+        self.__filename = filename
+    def set_filename(self, filename):
+        self.__filename = filename
+    def get_filename(self):
+        return self.__filename
+    def calculateAverage(self, num1,num2,num3):
+        try:
+            total = num1+ num2+ num3
+            average = total/3
+            return average
+        # exception errors
+        except ValueError as err:
+            print(err)
+        except IOError as err:
+            print(err)
+        except Exception as err:
+            print(err)
+def main():
+    try:
+        #Getting input from the users
+        num1=float(input("Please enter your first value: "))
+        num2=float(input("Please enter your second value: "))
+        num3=float(input("Please enter your third value: "))
+        #Creating temperatue file
+        test_file = open('D:\\Temperatures.txt', 'w')
+        #writing input informatin to the file
+        test_file.write(str(num1) + '\n')
+        test_file.write(str(num2) + '\n')
+        test_file.write(str(num3) + '\n')
+        #closing file
+        test_file.close()
+        temp1 = tempearutefile(test_file)
+        average = temp1.calculateAverage (float(num1),float(num2),float(num3))
+        print("your average temperature is:", average)
+        # exception errors
+    except ValueError as err:
+        print(err)
+    except IOError as err:
+        print(err)
+    except Exception as err:
+        print(err)
+    #Call to main
+main()
